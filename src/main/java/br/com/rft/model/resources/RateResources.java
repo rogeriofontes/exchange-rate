@@ -1,4 +1,4 @@
-package br.com.rft.model.response;
+package br.com.rft.model.resources;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.rft.model.domain.Rate;
 import br.com.rft.model.service.RateService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -20,11 +19,12 @@ public class RateResources {
 	private RateService service;
 
 	@GetMapping
-	public ResponseEntity<Rate> getRateByCoin(@RequestParam("base") String base, @RequestParam("coin") String coin) {
+	public ResponseEntity<String> getRateByCoin(@RequestParam("base") String base, @RequestParam("coin") String coin) {
 		if ((base != null && base.length() > 1) && (coin != null && coin.length() > 1)) {
-			Rate rateValue = service.findRate(base, coin);
-			log.info(rateValue.toString());
-			return ResponseEntity.ok(rateValue);
+			String rate = service.findRate(base, coin);
+
+			log.info("Rate: " + rate);
+			return ResponseEntity.ok(rate);
 		} else {
 			return ResponseEntity.noContent().build();
 		}

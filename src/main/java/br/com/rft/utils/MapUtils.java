@@ -6,7 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class MapUtils<T> {
-	
+
+	private MapUtils() {
+
+	}
+
 	public static <K, V> List<K> convertToList(Map<K, V> map) {
 		// create an empty list to store keys
 		List<K> key = new ArrayList<>();
