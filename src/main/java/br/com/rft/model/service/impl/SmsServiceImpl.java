@@ -22,11 +22,11 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class SmsServiceImpl implements SmsService {
 
-	private final static String ACCOUNT_SID = "AC30960fac26bcf1fdde9e0dcf42933cbd";
-	private final static String AUTH_ID = "416d0dde23cd3606859c8a56542521f6";
-	private static final String TWILIO_NUMBER = "+12069737086";
-	private static final String SEND_PHONE = "+5534992031938";
-	private static final String SEND_PHONE2 = "+5534996480888";
+	private final static String ACCOUNT_SID = "";
+	private final static String AUTH_ID = "";
+	private static final String TWILIO_NUMBER = "+";
+	private static final String SEND_PHONE = "+";
+	private static final String SEND_PHONE2 = "+";
 
 	static {
 		Twilio.init(ACCOUNT_SID, AUTH_ID);
